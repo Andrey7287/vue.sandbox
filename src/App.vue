@@ -1,17 +1,24 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main id="app">
+    <div class="container">
+      <items-list :items="this.$store.getters.getItems"/>
+      <b-row>
+        <b-col cols="6">
+          <add-item/>
+        </b-col>
+      </b-row>
+    </div>
+  </main>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import  itemsList from './components/itemsList.vue'
+import  addItem from './components/addItem.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    itemsList, addItem
   }
 }
 </script>
@@ -19,10 +26,6 @@ export default {
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
